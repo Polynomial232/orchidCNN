@@ -5,61 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Arima:wght@300&display=swap');
-
-        *{
-            margin: 0;
-            padding: 0;
+        body{
             background-color: #2b0c6b;
-            /* #e4ddff
-            #ffdc6d */
         }
-        .logo-center{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            justify-items: center;
-            align-items: center;
-            height: 100vh;
-            width: 100%;
-        }
-        .logo-center img{
-            min-width: 15em;
-            max-width: 15em;
-        }
-        .logo-center h1{
-            margin-top: 1em;
-            color: #a76dff;
-            font-family: 'Arima', cursive;
-        }
-        .loop-spin{
-            background: transparent;
-            animation-name: spin;
-            animation-duration: 3s;
-            animation-iteration-count: infinite;
-        }
-        span:hover{
-            transform: scale(110%);
-            transition: .2s ease-in-out;
-            cursor: pointer;
+        .done{
+            overflow: hidden;
+            animation-name: gone;
+            animation-duration: 2s;
+            opacity: 0;
+            background: none;
+            transition: 2s;
         }
 
-        @keyframes spin {
-            0% {
-                transform:rotate(0deg);
+        @keyframes gone {
+            from {
+                opacity: 1;
             }
-            50% {
-                transform:rotate(360deg);
+
+            to {
+                opacity: 0;
             }
-        }
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
         }
     </style>
 </head>
-<body>
+<body class="">
     <div class="logo-center">
         <span>
             <img src="Logo.png" alt="" class="loop-spin">
@@ -80,6 +51,19 @@
         }
 
         typeWriter()
+        
+        function nextPage(){
+            const myTimeout = setTimeout(() =>
+            {
+                document.getElementsByTagName("body")[0].classList.add("done")
+    
+                const go = setTimeout(() =>
+                {
+                    window.location.href = 'upload.html';   
+                }, 2000)
+            } , 1000)
+        }
+        
     </script>
 </body>
 </html>
